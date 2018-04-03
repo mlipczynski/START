@@ -13,6 +13,8 @@ namespace START
     {
         private string excelFilePath = string.Empty;
         private int rowNumber = 1; // define first row number to enter data in excel
+        private const int firstWeekRow = 5; // define first week row number
+        private int weekRow = firstWeekRow; // define first week row number
 
         Excel.Application myExcelApplication;
         Excel.Workbook myExcelWorkbook;
@@ -52,16 +54,28 @@ namespace START
             int numberOfSheets = myExcelWorkbook.Worksheets.Count; // get number of worksheets (optional)
         }
 
-        public void addDataToExcel(string firstname, string lastname, string language, string email, string company)
+        public void addDataToExcel(string date)
         {
 
-            myExcelWorkSheet.Cells[rowNumber, "H"] = firstname;
-            myExcelWorkSheet.Cells[rowNumber, "J"] = lastname;
-            myExcelWorkSheet.Cells[rowNumber, "Q"] = language;
-            myExcelWorkSheet.Cells[rowNumber, "BH"] = email;
-            myExcelWorkSheet.Cells[rowNumber, "CH"] = company;
+            myExcelWorkSheet.Cells[rowNumber, "A"] = date;
+            myExcelWorkSheet.Cells[rowNumber, "A"] = date;
+            myExcelWorkSheet.Cells[rowNumber, "A"] = date;
+            myExcelWorkSheet.Cells[rowNumber, "A"] = date;
+            myExcelWorkSheet.Cells[rowNumber, "A"] = date;
             rowNumber++;  // if you put this method inside a loop, you should increase rownumber by one or wat ever is your logic
 
+        }
+
+        public void checkWeekNumber(string date, int currentWeek)
+        {
+            while(weekRow < 57)
+            {
+                if (int.Parse(myExcelWorkSheet.Cells[weekRow, "B"].Value.ToString()) == currentWeek)
+                {
+                    myExcelWorkSheet.Cells[weekRow, "C"] = date;
+                }
+                weekRow++;
+            }
         }
 
         public void closeExcel()

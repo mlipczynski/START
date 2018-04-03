@@ -14,9 +14,19 @@ namespace START
     {
         static void Main(string[] args)
         {
+            ExcelFile HourSheet = new ExcelFile();
+            HourSheet.ExcelFilePath = @"C:\Users\Michal\Documents\GodzinyPracy.xlsx";
+            HourSheet.Rownumber = 5;
+
             int wk = WeekNumber.Get_Week_Number(DateTime.Now);
             int day = (int)DateTime.Now.DayOfWeek;
             string todayDate = DateTime.Now.ToString("d-MM-yyyy");
+
+
+            //probny zapis do pliku
+            HourSheet.openExcel();
+            HourSheet.checkWeekNumber(todayDate, wk);
+            HourSheet.closeExcel();
 
             Console.WriteLine(wk);
             Console.WriteLine(day);

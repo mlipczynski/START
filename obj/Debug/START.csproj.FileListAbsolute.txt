@@ -5,3 +5,4 @@ C:\Users\Michal\source\repos\START\START\obj\Debug\START.csprojResolveAssemblyRe
 C:\Users\Michal\source\repos\START\START\obj\Debug\START.csproj.CoreCompileInputs.cache
 C:\Users\Michal\source\repos\START\START\obj\Debug\START.exe
 C:\Users\Michal\source\repos\START\START\obj\Debug\START.pdb
+C:\Users\Michal\source\repos\START\START\obj\Debug\START.csproj.ResolveComReference.cache
